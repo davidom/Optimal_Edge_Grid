@@ -6,7 +6,24 @@ computational analysis depends heavily on the fidelity of the
 computational representation of a real-world object or phenomenon. 
 However, the task of creating high fidelity models of an actual geometry 
 can be time-consuming--sometimes consuming up to seventy-five percent of 
-the time required to produce a solution \cite{bischoff05}. This work seeks to improve the process of creating a computational model of an object of interest by accelerating the process of mesh generation. Below in Figure~\ref{GridGenerationProcess} an example of a mesh generation hierarchy can be seen. In general, a valid volume grid (three-dimensional) is bounded by surface grids (two-dimensional); and surface grids are bounded by edge-grids (one-dimensional). At the start of the grid generation hierarchy are point spacing values at the end points of analytical or parametric curves—which bound the edge-grids. In most cases, volume-grid generation is a highly automated procedure -- once the bounding surfaces are generated. The same generalization can be made for surface-grids and edge-grids. Algorithms that use automated point creation/insertion for mesh generation of one-, two-, and three-dimensional geometries are ubiquitous [REFERENCES, CUBIT, Delaunay, AFLR]. However the authors are only aware of one such automated scheme for setting point spacing values for more automated mesh generation \cite{mclaurin12}.\\
+the time required to produce a solution \cite{bischoff05}. This work seeks 
+to improve the process of creating a computational model of an object of 
+interest by accelerating the process of mesh generation. Below in 
+Figure~\ref{GridGenerationProcess} an example of a mesh generation 
+hierarchy can be seen. In general, a valid volume grid (three-dimensional) 
+is bounded by surface grids (two-dimensional); and surface grids are 
+bounded by edge-grids (one-dimensional). At the start of the grid 
+generation hierarchy are point spacing values at the end points of 
+analytical or parametric curves—which bound the edge-grids. In most cases, 
+volume-grid generation is a highly automated procedure -- once the 
+bounding surfaces are generated. The same generalization can be made for 
+surface-grids and edge-grids. Algorithms that use automated point 
+creation/insertion for mesh generation of one-, two-, and 
+three-dimensional geometries are ubiquitous~\cite{cubit,delaunay,aflr}.
+{\bf{DAVE:  Please check the AFLR reference.  I cited the paper which
+I assume covers the software.  But maybe there should be two separate
+links.}}  However the authors are only aware of one such automated scheme 
+for setting point spacing values for more automated mesh generation \cite{mclaurin12}.\\
 
 \begin{figure}[h!]
  \center{\includegraphics[width=0.8\textwidth]
