@@ -1,5 +1,6 @@
 % Introduction Document
-\section{Introduction}Computational design and analysis has become a 
+\section{Introduction}
+Computational design and analysis has become a 
 fundamental part of industry and academia for use in research, 
 development, and manufacturing. In general, the accuracy of a 
 computational analysis depends heavily on the fidelity of the 
@@ -42,9 +43,10 @@ operate on a specific type of curve, such as NURBS or B-splines, and use
 the specific information available for the type of curve in use. While in 
 the field of CAD NURBS curves are the de-facto standard, in other fields, 
 such as pattern-recognition, other types of digital curves, such as 
-parametric, are more common[REFERENCES]. T-splines are also becoming more 
-popular in applications such as isogeometric analysis [REFERENCES, Thomas 
-Hughes]. Therefore a general algorithm that does not require derivative 
+parametric, are more common~\cite{interactive_curve_modeling}.
+T-splines are also becoming more 
+popular in applications such as isogeometric analysis~\cite{iga}.
+Therefore a general algorithm that does not require derivative 
 information to generate a suitable edge grid has been developed. A result 
 of not using derivatives is that each step in the algorithm is robust to 
 large changes in derivatives or curves that are not ``well behaved'', 
