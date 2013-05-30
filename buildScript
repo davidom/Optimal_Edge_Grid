@@ -1,4 +1,9 @@
-DOCUMENT_NAME=Document
+if [ $# -eq 1 ]
+then
+  DOCUMENT_NAME=$1
+else
+  DOCUMENT_NAME=Document
+fi
 echo "pdflatex $DOCUMENT_NAME"
 pdflatex $DOCUMENT_NAME
 if [ $? -eq 0 ]; then
