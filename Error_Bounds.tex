@@ -22,8 +22,7 @@ obvious problem with this single-valued function is that the actual
 arc-length of the curve is never known and can therefore not be compared 
 to the arc-length of the segments.  How then can we quantify the error?  
 The error bounds could be detailed for unimodal pieces of the curve--those 
-where the ALD function has one peak.  {\bf{Dave:  What is an ALD 
-function?}} However, for segments that do 
+where the ALD function has one peak.  However, for segments that do 
 not have a unimodal distribution of the ALD function on the local curve segment, the error estimation is not straightforward.  It is no longer possible to determine what the bound for the arc-length-deficit error is.  However, we can state some observations about the geometry related to these configurations:
 
 Assume that the optimization function on a general segment found the global minimum, i.e. maximized the change in edge-length for the new combined segments, for the segment and corresponding curve piece.  With the given geometry, an ellipsoid can be formed with the endpoints of the segment, $F_1$ and $F_2$, as the foci and the semi-major and semi-minor axes are defined implicitly by the new segments connecting the new point with the endpoints of the current segment, $r_1$ and $r_2$.  ``An ellipse is a curve that is the locus of all points in the plane the sum of whose distances $r_1$ and $r_2$ from two fixed points $F_1$ and $F_2$ (the foci) separated by a distance of $2c$ is a given positive constant $2a$'' \cite{weissteine}.  With the above assumption and definition, the entirety of the curve represented by the segment must lie within the prolate spheroid  formed by the geometry below in Figure-\ref{EllipseGeometry}.

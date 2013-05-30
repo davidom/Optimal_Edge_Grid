@@ -139,16 +139,33 @@ objective function analogous to the one developed above.  In order to
 minimize each segment’s objective function, arc length deficit ($ALD$), 
 then a point $P$ has to be placed on the curve between the segment such 
 that the new sum of the arc lengths is changed maximally.  Since this 
-entire project is to be done without calculating derivatives (see reasons above), the optimization scheme chosen here is not given access to derivative information either.  Since the objective function is a non-negative planar curve, $(O: C \rightarrow ALD)$, any line-searching method of optimization could be used.  However, the method cannot have any requirements on differentiability due to the possibility that the derivative of $O$ could be discontinuous if the curve passed through the segment.  Consider the function $f(x)=x^3-3x^2-144x+432$, plotted in red in Figure-\ref{OptimizationFunctionExample} with the blue line representing the corresponding segment.  The middle figure shows the graph of the optimization function (as defined above).  Notice at the root, 3, the curve crosses the x-axis and the derivative of the optimization function does not exist.  This can be seen right Figure-\ref{OptimizationFunctionExample} which is a plot of the derivative of the optimization curve.  The red line represents the limit approaching from $-\infty$ and the blue line represents the limit approaching from $+\infty$.
-
-\begin{figure}[h!]
-  \center{
-    \includegraphics{Figures/CurvePlot.eps}
-    \includegraphics{Figures/OFunctionPlot.eps}
-    \includegraphics{Figures/ODerivativePlot.eps}
-  }
-  \caption{\label{OptimizationFunctionExample} Caption}
-\end{figure}
+entire project is to be done without calculating derivatives (see reasons 
+above), the optimization scheme chosen here is not given access to 
+derivative information either.  Since the objective function is a 
+non-negative planar curve, $(O: C \rightarrow ALD)$, any line-searching 
+method of optimization could be used.  However, the method cannot have any 
+requirements on differentiability due to the possibility that the 
+derivative of $O$ could be discontinuous.
+%if the curve passed through the segment.  Consider the function 
+%$f(x)=x^3-3x^2-144x+432$, plotted in red in 
+%Figure-\ref{OptimizationFunctionExample} with the blue line representing 
+%the corresponding segment.  The middle figure shows the graph of the 
+%optimization function (as defined above).  Notice at the root, 3, the 
+%curve crosses the x-axis and the derivative of the optimization function 
+%does not exist.  This can be seen right 
+%Figure-\ref{OptimizationFunctionExample} which is a plot of the 
+%derivative 
+%of the optimization curve.  The red line represents the limit approaching 
+%from $-\infty$ and the blue line represents the limit approaching from 
+%$+\infty$.
+%\begin{figure}[h!]
+%  \center{
+%    \includegraphics{Figures/CurvePlot.eps}
+%    \includegraphics{Figures/OFunctionPlot.eps}
+%    \includegraphics{Figures/ODerivativePlot.eps}
+%  }
+%  \caption{\label{OptimizationFunctionExample} Caption}
+%\end{figure}
 
 The golden section search method is implemented here since it meets all of 
 the above criteria and has the possibility to converge superlinearly 
