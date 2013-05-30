@@ -46,7 +46,7 @@ Suzanne M. Shontz\inst{2}}
 % Use \authorrunning{Short Title} for an abbreviated version of
 % your contribution title if the original one is too long
 \institute{High Performance Computing Collaboratory,
-           Center for Advance Vehicular Systems,
+           Center for Advanced Vehicular Systems,
 	       Graduate Program in Computational Engineering,
 		   Mississippi State University, Mississippi State, MS
 		   \texttt{d.mclaurin@msstate.edu}
@@ -65,7 +65,24 @@ Suzanne M. Shontz\inst{2}}
 
 %% main text
 \begin{abstract}
-Computational design and analysis has become a fundamental part of industry and academia for use in research, development, and manufacturing.  In general, the accuracy of a computational analysis depends heavily on the fidelity of the computational representation of a real-world object or phenomenon. Most mesh generation strategies focus on element quality--with the justification being that downstream applications require high quality geometries in order to achieve a desired level of accuracy. However, element quality should be secondary to accurately representing the underly physical object or phenomenon. This work seeks to improve the process of creating a computational model of an object of interest by accelerating the process of mesh generation by reducing the need for (often) manual intervention. This acceleration will be accomplished by automatically generating \textit{optimal} discretizations of curves by minimizing the \textit{arc-length deficit}. Methods were developed to generate optimal discretizations through local or global optimization. Results are presented showing the robustness and accuracy of the developed methods along with a discussion as to how to implement the developed methods into an existing mesh generator.
+Computational design and analysis has become a fundamental part of 
+industry and academia for use in research, development, and manufacturing.  
+In general, the accuracy of a computational analysis depends heavily on 
+the fidelity of the computational representation of a real-world object or 
+phenomenon. Most mesh generation strategies focus on element quality--with 
+the justification being that downstream applications require high quality 
+geometries in order to achieve a desired level of accuracy. However, 
+element quality should be secondary to accurately representing the 
+underlying physical object or phenomenon.  This work seeks to improve the 
+process of creating a computational model of an object of interest by 
+accelerating the process of mesh generation by reducing the need for 
+(often) manual intervention. This acceleration will be accomplished by 
+automatically generating \textit{optimal} discretizations of curves by 
+minimizing the \textit{arc-length deficit}.  We propose a method for
+generating optimal discretizations through local optimization of the 
+arc-length.  Our results demonstrate the robustness and accuracy of
+our optimal discretization technique.  We also discuss how to incorporate 
+our edge grid generator into existing mesh generation software.
 \end{abstract}
 
 \input{Introduction}
