@@ -1,56 +1,53 @@
 % Element Quality
 \section{Element Quality}
-A topic that has not been discussed thus far is element quality.  Element 
-quality is an intuitive measure for surface elements, e.g. triangles; but 
-how to define quality for a line segment?  In this context, the notion of 
-quality refers to the change in length between two topologically adjacent 
-segments.  For the purposes of representing the curve to a desired 
-tolerance, grid quality is not a concern.  However, for most applications 
-the grid quality directly affects downstream uses, e.g. CFD, CEM, etc... 
-Therefore, some discussion of this topic is warranted.  Grid quality in 
-terms of edge grids is most often defined in terms of growth ratio, i.e. 
-the length of a segment divided by the length of a topologically adjacent 
-segment.  If the growth ratio strongly deviates from unity then the sizes 
-of neighboring elements are not similar.  This will lead to a large 
-disparity in the size of surface elements generated from them and that 
-``error'' in the form of a large growth ratio will be present in both the 
-surface grid and volume grid in the vicinity of that portion of the edge 
-grid.  This kind of disparate length scales can cause problems for finite 
-element methods, finite volume methods, etc...
+Our goal was to develop an automated edge grid generator that accurately 
+represents the underlying geometry.  For this expressed purpose of 
+representing the curve to a desired tolerance, the grid quality 
+is not a concern.  However, for most applications, the grid quality 
+directly affects downstream analyses.
+% e.g., CFD, or CEM.
+
+Therefore, we explain how to modify our optimization problem in order to 
+yield an edge grid that both accurately represents the underlying geometry 
+and is of sufficient quality.  Edge grid quality is typically defined in 
+terms of the growth ratio, i.e., the length of a segment divided by the 
+length of a topologically adjacent segment.  If the growth ratio strongly 
+deviates from unity, the sizes of neighboring elements are not 
+similar which leads to a large disparity in the sizes of the surface and 
+volume elements which are generated.  Such disparate length scales can 
+cause problems for numerical PDE methods.
 
 Traditionally edge grids are generated with an {\it{a priori}} defined 
 growth ratio along with other parameters that ensure that the grid has 
-good quality.  A priori quality measures can be included in the 
-constraints used in the global optimization procedure in a similar fashion 
-to how the minimum and maximum edge lengths were included.  
-{\it{A posteriori}} methods for quality control could include some type of 
-smoothing or (other type of) optimization [find more methods].  The 
-authors acknowledge that the set of constraints grows very quickly in number with respect to the 
-number of grid points--albeit linearly.  {\bf{Suzanne:  Move with 
-definition of optimization problem.}}  There is the set that defines 
-the topology (1), the set that defines the minimum (2) and maximum (3) 
-edge lengths, and now two more for minimum (4) and maximum (5) growth 
-rates--for a total of five times the number of points.  For the local 
-procedure, minimum and maximum growth rates could be include by splitting an edge if 
-the growth rate is too large or small.
+good quality.  Upper and lower bounds can be included for the grid 
+quality as nonlinear constraints in the optimization problem.  However, in 
+this case, the number of constraints grows very quickly, albeit 
+linear in the number of grid points.  Alternatively, minimum and maximum 
+growth rates could be enforced by the optimization procedure by splitting 
+an edge if the growth rate is too large of small.  {\it{A posteriori}} 
+methods for quality control could include some type of 
+smoothing or optimization~\cite{lori_pat,feasnewt,multiobjective,logbarrier}.
 
-One final method is to use the output from the developed methods, 
-the ``optimal'' grid, as input for a grid generator—which presumably has 
+One final method is to use the output from the edge grid generator, the 
+``optimal'' grid, as input for a grid generator, which presumably has 
 strict quality control measures in place.  This would be accomplished by 
 using the point spacing values present at the end points of the 
 discretization at the end points of the curve.  The resulting edge grid 
 from the grid generator could then be analyzed for the purpose of 
 determining how far it deviates from ``optimality'' in the interior of the 
-curve.  For instance, given a node on a generated edge grid, $x_i$, the 
-corresponding parameterized value of $u_i$ could be found.  A point 
-spacing value could be calculated at $u_i$ and compared to an interpolated 
-value on the ``optimal'' edge grid.  If the values are found to be too 
-disparate, then a point spacing source could be added to adjust the point 
-spacing at that location.  The point spacing source would control the 
-spacing during grid generation so that the generated edge grid would more 
-closely resemble the spacing values present in the ``optimal'' grid while 
-maintaining the quality typically associated with grid generators. In 
-practice this usually leads to generated grids that are more fine than 
-required by precision bounds due to the quality constraints imposed during 
-grid generation.
-
+curve.  
+%For instance, given a node on a generated edge grid, $x_i$, the 
+%corresponding parameterized value of $u_i$ could be found.  A point 
+%spacing value could be calculated at $u_i$ and compared to an 
+%interpolated 
+%value on the ``optimal'' edge grid.  If the values are found to be too 
+%disparate, then a point spacing source could be added to adjust the point 
+%spacing at that location.  The point spacing source would control the 
+%spacing during grid generation so that the generated edge grid would more 
+%closely resemble the spacing values present in the ``optimal'' grid while 
+%maintaining the quality typically associated with grid generators. In 
+%practice this usually leads to generated grids that are more fine than 
+%required by precision bounds due to the quality constraints imposed 
+%during grid generation.
+If the deviation is too large, a point spacing source could be inserted to 
+adjust and control the point spacing as desired during grid generation.
