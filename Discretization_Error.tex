@@ -1,36 +1,5 @@
 %Discretization Error
 \section{Discretization Error}
-The accuracy, or discretization error, of a piecewise, linear 
-representation ($discretization$) of an analytical curve ($curve$) in 
-$R^3$ can be defined in many ways depending on the intended application.  
-The error associated with the $discretization$ is discussed in terms of 
-the ``deviation'' from the $curve$—most often quantified by calculating or 
-approximating the distance from the $curve$ for each linear segment in the 
-$discretization$, or the area of the ruled surface between a curve-piece 
-and the segment representing that part of the $curve$.  Another way of 
-quantifying the error associated with a $discretization$ would be to 
-consider how well it approximates the arc length of the $curve$ it 
-represents.  In general the arc length is not known a priori, but 
-depending on the underlying representation it can be calculated exactly 
-(parametric or analytical) or can be estimated (Bezier).  One of the goals 
-of this method was to be ``general'' in that it should be independent of 
-the underlying geometric representation.  Therefore a method that requires the 
-arc-length of the underlying geometry violates the aforementioned concept 
-of ``generality'' and restricts the applications for which the proposed 
-method could be applied.  Some other way of determining/generating an edge 
-grid based on arc length is needed.  This process will be detailed later.
+The accuracy, or discretization error, of a piecewise, linear representation ($discretization$) of an analytical curve ($curve$) in $R^3$ can be defined in many ways depending on the intended application.  The error associated with the $discretization$ is discussed in terms of the ``deviation'' from the $curve$ -- most often quantified by calculating or approximating the distance from the $curve$ for each linear segment in the $discretization$, or the area of the ruled surface between a curve-piece and the segment representing that part of the $curve$.  Another way of quantifying the error associated with a $discretization$ would be to consider how well it approximates the arc length of the $curve$ it represents.  In general the arc length is not known a priori, but depending on the underlying representation it can be calculated exactly (parametric or analytical) or can be estimated (Bezier).  One of the goals of this method was to be ``general'' in that it should be independent of the underlying geometric representation.  Therefore a method that requires the arc-length of the underlying geometry violates the aforementioned concept of ``generality'' and restricts the applications for which the proposed method could be applied.  Some other way of determining/generating an edge grid based on arc length is needed.  This process will be detailed later.
 
-Arc-length convergence of a $discretization$ is a sufficient condition for 
-other schemes of edge grid generation/refinement.  That is: if the 
-difference between the arc length of the $curve$ and the sum of the 
-segments in the $discretization$ approaches zero then that is sufficient 
-to conclude that the distance between the $discretization$ and the $curve$ 
-is also approaching zero, also the angles between segments approaches 180 
-degrees.  However, the converse of that statement is not true.  The 
-pathological case of a highly oscillatory, low amplitude $curve$ 
-approximated by two straight lines shows that a $discretization$ of a 
-$curve$ can have a small ``deviation'' or angles between segments but be a 
-poor estimate for arc length.  Another pathological case is a 
-``non-convex'' $curve$ where the parameterization goes well ``outside'' of 
-the segment.
-
+Arc-length convergence of a $discretization$ is a sufficient condition for other schemes of edge grid generation/refinement.  That is: if the difference between the arc length of the $curve$ and the sum of the segments in the $discretization$ approaches zero then that is sufficient to conclude that the distance between the $discretization$ and the $curve$ is also approaching zero, also the angles between segments approaches 180 degrees.  However, the converse of that statement is not true.  The pathological case of a highly oscillatory, low amplitude $curve$ approximated by two straight lines (sine-wave approximated by straight lines) shows that a $discretization$ of a $curve$ can have a small ``deviation'' or angles between segments but be a poor estimate for arc length.  Another pathological case is a ``non-convex'' $curve$ where the parameterization goes well ``outside'' of the segment.
