@@ -30,30 +30,44 @@ A value of curvature can be calculated for each edge in the \textit{discretizati
 
 \noindent The method of choosing this point, P, and its importance to an accurate mesh refinement will be detailed later. This definition/approximation of the radius of curvature of the \textit{curve}/\textit{discretization} is useful for this application, but exhibits scale-dependence. The discrete radius of curvature alone is not sufficient to determine how well a segment approximates the curvature. The discrete radius of curvature must be given some context. In other words: it must be compared to the local feature size in order to determine if the segment is an accurate representation. Another problem with comparing the radius of curvature and the discrete radius of curvature is that as the \textit{discretization} becomes more refined the discrete radius of curvature approaches infinity and therefore diverges from the analytical value at that point. Stated another way, as the sum of the length of the segments in the \textit{discretization} converges to the actual length of the \textit{curve}, the discrete radius of curvature of each segment approaches infinity. Therefore, a quantity is needed that is scale-independent that converges to a computer-representable value as the \textit{discretization} becomes more refined.
 
-%\begin{theorem}
-{\bf{Dave:  The theorem needs to be put in theorem/proof format.  Likely
-by including vehmacros.tex in the tarball.  Unfortunately, I cannot seem
-to get this to work right now, so I've commented this out.}}
-%\end{theorem}
-%\begin{proof}
 Consider a circular segment, which represents the \textit{curve} 
-(\textit{s}).  The corresponding chord, which represents a segment in the 
-\textit{discretization}--(\textit{a}), and saggitta--which represents the 
-``deviation'' of the segment away from the \textit{curve} (\textit{h}) 
-in Figure-\ref{CircleGeometry} :
+$s$.  The corresponding chord, which represents a segment in the 
+\textit{discretization}--$a$, and saggitta--which represents 
+the ``deviation'' of the segment away from the \textit{curve} $h$
+is shown in Figure~\ref{CircleGeometry}.
 
 \begin{figure}
   \center{\includegraphics
     {Figures/CircleGeometry.eps}}
   \caption{\label{CircleGeometry} Caption}
-\end{figure}
+\end{figure}.
 
-As the length of a approaches the length of s, the length of h goes to zero, therefore the radius of the circle, R, goes to infinity.\\
-(1) $a=\sqrt{R^2+r^2}=2*\sqrt{(h*(2*R-h)}$ \hspace{2pt} which rearranged yields: \\
-(2) $R=\frac{(\frac{a}{2})^2*\frac{1}{h}+h}{2}=
-\frac{a^2+4*h^2}{8*h}=\frac{a^2}{8*h}+\frac{h}{2}$\\
-(3) $lim_{h\to0}(\frac{a^2}{(8*h)}+\frac{h}{2})=\infty$ \\
-%\end{proof}
+\begin{theorem}
+As the length of $a$ approaches the length of $s$, the length of $h$ goes 
+to zero, therefore the radius of the circle, $R$, goes to infinity.  
+\end{theorem}
+
+\begin{proof}
+First, 
+\begin{eqnarray}
+\begin{array}{lcl}
+a & = & \sqrt{R^2+r^2}=2*\sqrt{(h*(2*R-h)}.
+\end{array}
+\end{eqnarray}
+Upon rearranging, we obtain
+\begin{eqnarray}
+\begin{array}{lcl}
+R & = & \frac{(\frac{a}{2})^2*\frac{1}{h}+h}{2}=
+\frac{a^2+4*h^2}{8*h}=\frac{a^2}{8*h}+\frac{h}{2}.
+\end{array}
+\end{eqnarray}
+Finally,
+\begin{eqnarray}
+\begin{array}{lcl}
+lim_{h\to0} (\frac{a^2}{(8*h)}+\frac{h}{2}) & = & \infty.
+\end{array}
+\end{eqnarray}
+\end{proof}
 
 Given the aforementioned proof, if the discrete curvature radius is 
 divided by the length of the corresponding segment on the \textit{curve}, 
