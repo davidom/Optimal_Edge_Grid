@@ -50,10 +50,10 @@ point in non-parametrized, $(x,y)$-space as follows:
 \begin{eqnarray*} 
 \begin{array}{rcl} 
 P_1 & = & \alpha,\\ 
-e \leq & S_1 & \leq m \\ 
-e \leq & S_2 & \leq m \\ 
+e \leq & \hat{S}_1 & \leq m \\ 
+e \leq & \hat{S}_2 & \leq m \\ 
 e \leq & \vdots & \leq m \\ 
-e \leq & S_{n_t-1} & \leq m \\ 
+e \leq & \hat{S}_{n_t-1} & \leq m \\ 
 P_{n_t} & = & \beta. 
 \end{array} 
 \end{eqnarray*}
@@ -161,15 +161,16 @@ derivative of $O$ could be discontinuous.
 The golden section search method is implemented here since it meets all of 
 the above criteria and has the possibility to converge superlinearly 
 \cite{brent73}--unlike the bisection method.  Alternatively, a pattern 
-search~\cite{}, simplex~\cite{}, or interior point method~\cite{} could 
-have been used.  If the length of each segment locally approaches the 
-portion of the curve it represents (i.e., the local objective function is 
+search~\cite{hopspack}, simplex~\cite{dantzig1,dantzig2}, or interior 
+point method~\cite{karmarkar} could be used.  If the length of each 
+segment 
+locally approaches the portion of the curve it represents (i.e., the 
+local objective function is 
 minimized), then the global length of the discretization approaches the 
 global length of the curve (a restatement of the property of optimal 
 substructure). Also, since the optimization algorithm for each segment is 
 only concerned about the portion of the curve it represents, then this 
-method exhibits scale-independence, which was one of the requirements for 
-the algorithm.
+method exhibits scale-independence, which was one of our requirements.
 
 Recursive algorithms require stopping criteria. In this case the stopping 
 criteria should not permit the method to infinitely subdivide the curve. 
