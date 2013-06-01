@@ -30,13 +30,15 @@ problem if both the parameterization values and number of interior points
 on the curve are unknown.  Mixed integer linear programming problems can 
 be solved by a variety of standard techniques (e.g., MINTO~\cite{minto}, 
 MOSEK~\cite{mosek}, or SYMPHONY~\cite{symphony}).  However, such problems 
-are, in general, NP-hard.  Alternatively, the optimization problem would 
-need to be solved several times with an increasing number of interior 
-points until the combined length of the segments in the discretization 
-converged to within a desirable tolerance.  This is also a 
-computationally-expensive solution.  Although the analysis and computation 
-are straightforward for a fixed number of interior points, one would need 
-to specify {\it{a priori}} this number.
+are, in general, NP-hard.  
+%Alternatively, the optimization problem would 
+%need to be solved several times with an increasing number of interior 
+%points until the combined length of the segments in the discretization 
+%converged to within a desirable tolerance.  This is also a 
+%computationally-expensive solution.  
+Although the analysis and computation are straightforward for a fixed 
+number of interior points, one would need to specify {\it{a priori}} this 
+number, which is impractical.
 
 Instead, in order to derive a practical algorithm that controls the 
 number of interior points in the discretization, we add user-defined 
