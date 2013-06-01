@@ -27,7 +27,11 @@ A value of curvature can be calculated for each edge in the \textit{discretizati
 
 The method of choosing this point, P, and its importance to an accurate mesh refinement will be detailed later. This definition/approximation of the radius of curvature of the \textit{curve}/\textit{discretization} is useful for this application, but exhibits scale-dependence. The discrete radius of curvature alone is not sufficient to determine how well a segment approximates the curvature. The discrete radius of curvature must be given some context. In other words: it must be compared to the local feature size in order to determine if the segment is an accurate representation. Another problem with comparing the radius of curvature and the discrete radius of curvature is that as the \textit{discretization} becomes more refined the discrete radius of curvature approaches infinity and therefore diverges from the analytical value at that point. Stated another way, as the sum of the length of the segments in the \textit{discretization} converges to the actual length of the \textit{curve}, the discrete radius of curvature of each segment approaches infinity. Therefore, a quantity is needed that is scale-independent that converges to a computer-representable value as the \textit{discretization} becomes more refined.
 
-Consider a circular segment, which represents the \textit{curve} $s$.  The corresponding chord, which represents a segment in the \textit{discretization}--$a$, and saggitta--which represents the ``deviation'' of the segment away from the \textit{curve} $h$ is shown in Figure~\ref{CircleGeometry}.
+Consider a circular segment, which represents the \textit{curve}, $s$.  
+The corresponding chord, which represents a segment in the 
+\textit{discretization}, $a$, and saggitta--which represents the 
+``deviation'' of the segment away from the \textit{curve}, $h$, is shown 
+in Figure~\ref{CircleGeometry}.
 
 \begin{figure}
   \center{\includegraphics
@@ -62,13 +66,15 @@ Finally,
 \end{eqnarray}
 \end{proof}
 
-Given the aforementioned proof, if the discrete curvature radius is divided by the length of the corresponding segment on the \textit{curve}, then it’s value approaches zero. This is a scale independent measure that converges to a computer representable number as the \textit{discretization} approaches the length of the \textit{curve}. The parameter is known as the curvature ratio. It is an intuitive measure that relates ``how far'' the \textit{curve} deviates from the segment that is representing it as the ratio of those lengths. Consider a point on a \textit{curve} between two endpoints of a segment of a \textit{discretization}, as seen in Figure-\ref{CurvatureRatio}. The length of the segment, $L_i$, is the distance from $P_0$ to $P_1$. The perpendicular distance between the point on the \textit{curve} between the end points and the segment is $L_c$. The three points define a curvature ratio through the ratio of $L_c$ to $L_i$.
+Given the aforementioned proof, if the discrete curvature radius is 
+divided by the length of the corresponding segment on the \textit{curve}, then it’s value approaches zero. This is a scale independent measure that converges to a computer representable number as the \textit{discretization} approaches the length of the \textit{curve}. The parameter is known as the curvature ratio. It is an intuitive measure that relates ``how far'' the \textit{curve} deviates from the segment that is representing it as the ratio of those lengths. Consider a point on a \textit{curve} between two endpoints of a segment of a \textit{discretization}, as seen in Figure~\ref{CurvatureRatio}. The length of the segment, $L_i$, is the distance from $P_0$ to $P_1$. The perpendicular distance between the point on the \textit{curve} between the end points and the segment is $L_c$. The three points define a curvature ratio through the ratio of $L_c$ to $L_i$.
 
 \begin{figure}[h!]
   \center{\includegraphics
     {Figures/CurvatureRatio.eps}}
-  \caption{\label{CurvatureRatio} $curvature ratio=  \frac{L_c}{L_i}$ 
+  \caption{\label{CurvatureRatio} $curvature \ ratio=  \frac{L_c}{L_i}$ 
 \cite{mclaurin10}}
 \end{figure}
 
-\noindent As shown in \cite{mclaurin12}, deviation based methods are intuitive and straightforward to implement. However, drawbacks include the fundamental lack of consistently being able to indicate discretization accuracy for curves that are not ``well-behaved'' between discrete segments.
+\noindent As shown in \cite{mclaurin12}, deviation-based methods are 
+intuitive and straightforward to implement. However, drawbacks include the fundamental lack of consistently being able to indicate discretization accuracy for curves that are not ``well-behaved'' between discrete segments.
