@@ -7,9 +7,6 @@ effectively/efficient locally.
 %in a way that is most effective/efficient locally. 
 Also, if the purpose of the refinement process is to minimize the actual arc length minus the discrete arc length, then an optimization problem can be formed where an objective function is minimized as the combined length of the segments in the discretization approach that of the curve.
 
-{\bf{DAVE:  I changed this to $(x,y)$ space since we're not doing 3D 
-curves.  If you want it to be more general, please change it back.  I 
-changed this throughout the paper.}}
 Let $C(u)$ be a parameterized curve, and $D$ be a discretization of the 
 curve comprised of $n_t$ points, $P_i : i \in \{1,...,n_t\}$, and 
 segments, $S_j : j \in \{1,...,(n_t-1)\}$. Segment $S_j$ is defined by two successive parameterization values, $u_j$ and $u_{j+1}$. If $L(S)$ is a function that calculates the length of a segment in $(x,y)$ space then the optimization problem can be stated as:
