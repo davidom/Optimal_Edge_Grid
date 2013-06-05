@@ -83,7 +83,7 @@ Others have attempted dynamic programming methods for generating ``optimal'' dis
 This would generate an optimal solution using two segments to represent the entire curve -- which can be stated another way as maximizing the perimeter of the triangle formed by the existing segment and the two new segments. The above optimization problem could then be applied recursively to each new segment with $n_t=3$. This process breaks the task of optimizing a discretization for an entire curve into optimizing a simple discretization for smaller section of the curve with the following algorithm. The optimization algorithm described above with $n_t=3$ for a given segment is:
 
 \begin{algorithm}
-\caption{Optimization Algorithm with $n_t=3$}\label{localoptimize}
+\caption{Optimization Algorithm with $n_t=3$}\label{alg:localoptimize}
 \begin{algorithmic}[1]
 \State $n_t = 3$
 \State $u_i : i \in \{1,2,3\}$
@@ -98,7 +98,7 @@ This would generate an optimal solution using two segments to represent the enti
 The would be applied for each segment in the discretization by:
 
 \begin{algorithm}
-\caption{Optimization Algorithm for Discretization}
+\caption{Optimization Algorithm for Discretization}\label{alg:discreteoptimize}
 \begin{algorithmic}
   \State $D(S_j) : j \in {1}$
   \State push $S_1$ into $list$ \Comment{$list$ is $queue$ if breadth-first, $stack$ if depth-first}
@@ -107,7 +107,7 @@ The would be applied for each segment in the discretization by:
     \If {$S_i$ is optimal}
       \State do nothing
     \Else
-      \State optimize $S_j$ with Algorithm \ref{localoptimize}
+      \State optimize $S_j$ with \Cref{alg:localoptimize}
       \State push $S_{i,i+\frac{1}{2}}$ into $list$
       \State push $S_{i+\frac{1}{2},i+1}$ into $list$
     \EndIf

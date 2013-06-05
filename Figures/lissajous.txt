@@ -1,0 +1,20 @@
+0.1
+true length: 13.0653
+approximate length: 12.7123
+percent: 0.972983
+deficit: 0.0270173
+segments: 8
+
+0.01
+true length: 13.0653
+approximate length: 12.8844
+percent: 0.986155
+deficit: 0.013845
+segments: 21
+
+0.001
+true length: 13.0653
+approximate length: 13.0436
+percent: 0.998339
+deficit: 0.00166148
+segments: 121
