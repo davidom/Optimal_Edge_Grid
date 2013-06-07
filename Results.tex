@@ -9,7 +9,7 @@ Three curves were chosen to demonstrate the aspects of the developed methods. Th
   \includegraphics[width=0.3\linewidth]{Figures/lissajous001.png} &
   \includegraphics[width=0.3\linewidth]{Figures/lissajous0001.png}
   \end{tabular}
-  \caption{\label{fig:lissajous} Lissajous Curves: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right)}
+  \caption{\label{fig:lissajous} Lissajous Curves: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right);\newline $x(t) = a * sin(n*t + c)$, $y(t) = b* sin(t)$, $a=b=c=1$, $n=3$, $0 < t < 2\pi$}
 \end{figure}
 
 For the Lissajous curve, the optimization can be seen to be effective and efficient with regards to only generating vertices where the curvature is high and not wasting vertices on the relatively ``straight'' portions of the curve. In addition, the self-intersection present on this curve did not impede the generation of an optimal edge-grid.
@@ -21,25 +21,31 @@ For the Lissajous curve, the optimization can be seen to be effective and effici
   \includegraphics[width=0.3\linewidth]{Figures/tricuspoid001.png} &
   \includegraphics[width=0.3\linewidth]{Figures/tricuspoid0001.png}
   \end{tabular}
-  \caption{\label{fig:tricuspoid} Tricuspoid Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right)}
+  \caption{\label{fig:tricuspoid} Tricuspoid Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right);\newline $x(t) = a*(2*cos(t) + cos(2*t))$, $y(t) = a*(2*sin(t) - sin(2t))$, $a=1$, $0<t<2*\pi$}
 \end{figure}
 
-For the Tricuspoid curve, the optimization can be seen to be accurate with regards to placing a vertex at the discontinuity. Placing a vertex at the discontinuity is efficient since not further nodes are required to capture that feature of the curve. It can be seen that further refinements are placed elsewhere on the curve.
+For the Tricuspoid curve, the optimization can be seen to be accurate with regards to placing a vertex at the discontinuities. Placing a vertex at the discontinuity is efficient since no further nodes are required to capture that feature of the curve. It can be seen that further refinements are placed elsewhere in order to capture curvature.
 
 \begin{figure}[h!]
   \centering
   \begin{tabular}{ccc}
-  last & figure & here
+  \includegraphics[width=0.3\linewidth]{Figures/random01.png} &
+  \includegraphics[width=0.3\linewidth]{Figures/random001.png} &
+  \includegraphics[width=0.3\linewidth]{Figures/random0001.png}
   \end{tabular}
-  \caption{\label{fig:lastfigure} Caption}
+  \caption{\label{fig:lastfigure} Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right);\newline $x(t) = 2*t + 3*sin(7*t)$, $y(t) = t + 8*cos(3*t)$, $0<t<1$}
 \end{figure}
 
-\Cref{tab:curvelength} summarizes the results from discretizing the three curves. [REST OF PARAGRAPH ABOUT TABLE]
+THIS CURVE IS REALLY SIMILAR TO THE LISSAJOUS CURVE BUT I PUT THE FIGURE AND THIS PARAGRAPH HERE TO SIMULATE A THIRD EXAMPLE IN ORDER TO GIVE AN ACCURATE PAGE COUNT. THIS CURVE IS REALLY SIMILAR TO THE LISSAJOUS CURVE BUT I PUT THE FIGURE AND THIS PARAGRAPH HERE TO SIMULATE A THIRD EXAMPLE IN ORDER TO GIVE AN ACCURATE PAGE COUNT. The numbers and results are real though if you like this curve better than the one above. I tried to find a ``more interesting'' curve but the equation would be too long to present here. I guess I could cite the formulation but it would be a lot of work programming up heavy-sided step functions, etc...
+
+\Cref{tab:curvelength} summarizes the results from discretizing the three curves. Each row shows the results from a particular percentage change in edge-length that was used as the refinement constraint. In each row is the discretization length of each curve is shown along with the arc-length deficit relative to the true length of the curve and number of segments in parenthesis. Each result is under the desired arc-length deficit for the entire curve -- except for 1\% result for the $Lissajous$ curve which is slightly higher. Other test results run by the authors showed similar results in accuracy and robustness.
 
 \begin{table}[h!] \caption{\label{tab:curvelength} Discretization length with respect to true curve length}
 \begin{tabular}{cccc}
  & Lissajous Curve & Tricuspoid & last curve \\
-True Length & 13.0653 & 16.0 & \\
-10\% deficit criterion & 12.7123 (2.7\%) & 15.5885 (2.5\%) & \\
+True Length & 13.0653 & 16.0 & 108.938\\
+10\% deficit & 12.7123 (2.7\%, 8) & 15.5885 (2.5\%, 4) & 102.875 (5.566\%, 14)\\
+1\% deficit & 12.884 (1.4\%, 21) & 15.87 (0.78\%, 7) & 107.975 (0.8846\%, 51)\\
+0.1\% deficit & 13.04 (0.166\%, 121) & 15.99 (0.058\%, 25) & 108.823 (0.105\%, 181)
 \end{tabular}
 \end{table}
