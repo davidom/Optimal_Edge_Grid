@@ -10,12 +10,14 @@ the $discretization$, or the area of the ruled surface between a
 curve-piece and the segment representing that part of the $curve$.  
 Another way of quantifying the error associated with a $discretization$ 
 would be to consider how well it approximates the arc length of the 
-$curve$ it represents.  In general the arc length is not known a priori, 
+$curve$ it represents.  In general the arc length is not known {\it{a 
+priori}}, 
 but depending on the underlying representation it can be calculated 
 exactly (parametric or analytical) or can be estimated (Bezier).  One of 
 the goals of this method was to be ``general'' in that it should be 
-independent of the underlying geometric representation.  Therefore a 
-method that requires the arclength of the underlying geometry violates the 
+independent of the underlying geometric representation.  Therefore, a 
+method that requires the arc length of the underlying geometry violates 
+the 
 aforementioned concept of ``generality'' and restricts the applications 
 for which the proposed method could be applied.  Some other way of 
 determining/generating an edge grid based on arc length is needed.  This 

@@ -7,8 +7,38 @@
 %- adding {\it{a priori}} grid quality constraints to optimization problem \\
 %- global optimization \\
 %- surface optimization
-An algorithm for edge-grid discretization through local optimization was developed. In an effort to accelerate the process of grid generation, minimal user input is required for the developed method: a single parameter which is used as a limit for local refinement. The results show that the generated edge-grid is optimal with respect to arc-length deficit. In addition, the process was shown to be robust to discontinuities, abrupt changes in curvature, and self-intersections. Results were shown here in two-dimensions for ease of presentation. The developed algorithm is easily abstracted to three-dimensions through a changed in curve and the kernel for edge-length calculation.
+An algorithm for edge grid discretization through local optimization was 
+developed. In an effort to accelerate the process of grid generation, 
+minimal user input is required for the developed method: a single 
+parameter which is used as a limit for local refinement. The results show 
+that the generated edge grid is optimal with respect to arc-length 
+deficit. In addition, the process was shown to be robust to 
+discontinuities, abrupt changes in curvature, and self-intersections. 
+Results were shown here in two dimensions for ease of presentation. The 
+developed algorithm is easily abstracted to three dimensions through a 
+changed in curve and the kernel for edge length calculation.
 
-Future work would include a comparison to a global optimization problem formulated with the presented constraints and an additional constraint of a given number of edge grid points. [{\bf Suzanne: maybe something about the methods you tried and were unsuccessful?}] Grid quality measures could also be included in the optimization problem via {\it a priori} quality constraints.
+Future work would include a comparison to a global optimization problem 
+formulated with the presented constraints and an additional constraint of 
+a given number of edge grid points. Grid quality measures could also be 
+included in the optimization problem via {\it a priori} quality 
+constraints.
 
-More work will also be done to abstract the problem from strictly one-dimensional simplices (edge-grids) to two-dimensional simplices (triangles). While it was straightforward to determine which part of a curve an edge grid represents, it is non-trivial to determine which part of a surface a triangle represents. The development of a map between the planar elements representing a surface and the underlying geometry would be one of the chief tasks moving forward. Additionally, the edges, as well as the triangles, in the discretization must considered when optimizing the surface grid.
+More work will also be done to abstract the problem from strictly 
+one-dimensional simplices (edge grids) to two-dimensional simplices 
+(triangles). While it was straightforward to determine which part of a 
+curve an edge grid represents, it is non-trivial to determine which part 
+of a surface a triangle represents. The development of a map between the 
+planar elements representing a surface and the underlying geometry would 
+be one of the chief tasks moving forward. Additionally, the edges, as well 
+as the triangles, in the discretization must considered when optimizing 
+the surface grid.
+
+{\bf{Dave:  Modify the applications here if desired.  I'm interested in 
+medicine.  And I assume you have some mechanical engineering 
+applications.}}
+Finally, we will apply our edge and surface grid generation routines on 
+problems stemming from real-world applications, including those from 
+mechanical engineering and medicine.  One challenge that will need to be 
+faced is the development of a surface grid generator which can develop 
+an optimal representation of a surface from noisy data.

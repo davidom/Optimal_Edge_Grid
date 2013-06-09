@@ -5,11 +5,13 @@ approximates a curve is to consider the difference between arc lengths.
 This is another way to determine ``how well'' a $discretization$ captures curvature. Locally, it is important for each segment in the discretization to represent the local geometry present in the curve. If a segment is to be subdivided in order to improve the discretization, then it should be subdivided 
 effectively/efficient locally.
 %in a way that is most effective/efficient locally. 
-Also, if the purpose of the refinement process is to minimize the actual arc length minus the discrete arc length, then an optimization problem can be formed where an objective function is minimized as the combined length of the segments in the discretization approach that of the curve.
+Also, if the purpose of the refinement process is to minimize the actual 
+arc length minus the discrete arc length, then an optimization problem can 
+be formed where an objective function is minimized as the combined length of the segments in the discretization approaches that of the curve.
 
 Let $C(u)$ be a parameterized curve, and $D$ be a discretization of the 
 curve comprised of $n_t$ points, $P_i : i \in \{1,...,n_t\}$, and 
-segments, $S_j : j \in \{1,...,(n_t-1)\}$. Segment $S_j$ is defined by two successive parameterization values, $u_j$ and $u_{j+1}$. If $L(S)$ is a function that calculates the length of a segment in $(x,y)$ space then the optimization problem can be stated as:
+segments, $S_j : j \in \{1,...,(n_t-1)\}$. Segment $S_j$ is defined by two successive parametrization values, $u_j$ and $u_{j+1}$. If $L(S)$ is a function that calculates the length of a segment in $(x,y)$ space then the optimization problem can be stated as:
 \begin{eqnarray*}
 \begin{array}{rcl}
 \underset{u_i}{\text{minimize}} \ O & = & -\sum{_{j=2}^{n_t-1}L_j} \\
@@ -41,7 +43,8 @@ Instead, in order to derive a practical algorithm that controls the
 number of interior points in the discretization, we add user-defined 
 bounds on the distance between points in the discretization.  This turns 
 the optimization problem into a linear programming problem.  To this end, 
-let $e$ and $m$ represent user-defined lower and upper bounds, 
+let $e$ and $m$ represent user-defined lower and upper bounds on the 
+distance between points in the discretization, 
 respectively.  In addition, let $\hat{S}_i$ denote the $i^{th}$ segment 
 in non-parametrized space, i.e., $\hat{S}_i = P_{i+1}-P_i$.  The bounds 
 are easily worked into the set of constraints, where $P_i$ represents a 
@@ -64,7 +67,7 @@ over-constrained problem where solutions did not exist for too many or too
 few points. For instance, too many points could not satisfy the 
 minimum-distance set of constraints and too few points could not satisfy 
 the maximum-distance set of constraints. However, explicitly determining 
-these bounds for $n_t$ would prove difficult. For example, it could, 
+these bounds for $n_t$ would prove difficult. For example, it could 
 involve repeatedly sampling the curve to determine the maximum number of 
 e-length segments and the minimum number of m-length segments. This would 
 be possible but is inefficient. Another option is to estimate the number 
@@ -72,13 +75,16 @@ of points needed \cite{cuilliere97}. However, if $n_t$ is to be estimated
 then the discretization is not guaranteed to globally optimal. Therefore, 
 a global optimization problem, while possible, is not 
 very practical in this case. One of the aims of this work is to 
-accelerate the generation of suitable grids for simulation; and moving the 
+accelerate the generation of suitable grids for simulation; moving the 
 bottleneck for grid generation to the lowest level in the grid generation 
 hierarchy just increases the amount of time required to generate a grid. 
-The above method does however represents a solution to the problem of 
-generating automated, optimal edge-grids.
+The above method does, however, represent a solution to the problem of 
+generating automated, optimal edge grids.
 
-Others have attempted dynamic programming methods for generating ``optimal'' discretizations for digital curves \cite{horng02}. However, in general this should prove no more effective than any of the approaches mentioned above. It is true that the problem of generating a discretization to accurately represent a curve exhibits optimal substructure—which is defined where ``...an optimal solution can be constructed efficiently from optimal solutions to its subproblems.'' \cite{cormen01} However, the number of distinct subproblems available that represent an optimal solution at a defined error bound can be infinite. Therefore, instead of trying to find an optimal number of nodes required for an optimal discretization (which seems very inefficient), the proposed algorithm will use a divide-and-conquer (recursive) approach to generating an ideal discretization relative to a given tolerance. The combination of the optimized segments represents an optimal discretization for the entire curve.
+Others have attempted dynamic programming methods for generating 
+``optimal'' discretizations for digital curves \cite{horng02}. However, in 
+general this should prove no more effective than any of the approaches 
+mentioned above. It is true that the problem of generating a discretization to accurately represent a curve exhibits optimal substructure, which is defined where ``...an optimal solution can be constructed efficiently from optimal solutions to its subproblems'' \cite{cormen01}. However, the number of distinct subproblems available that represent an optimal solution at a defined error bound can be infinite. Therefore, instead of trying to find an optimal number of nodes required for an optimal discretization (which seems very inefficient), the proposed algorithm will use a divide-and-conquer (recursive) approach to generating an ideal discretization relative to a given tolerance. The combination of the optimized segments represents an optimal discretization for the entire curve.
 
 This would generate an optimal solution using two segments to represent the entire curve -- which can be stated another way as maximizing the perimeter of the triangle formed by the existing segment and the two new segments. The above optimization problem could then be applied recursively to each new segment with $n_t=3$. This process breaks the task of optimizing a discretization for an entire curve into optimizing a simple discretization for smaller section of the curve with the following algorithm. The optimization algorithm described above with $n_t=3$ for a given segment is:
 
@@ -95,7 +101,8 @@ This would generate an optimal solution using two segments to represent the enti
 \end{algorithmic}
 \end{algorithm}
 
-The would be applied for each segment in the discretization by:
+The above algorithm would be applied for each segment in the 
+discretization by:  
 
 \begin{algorithm}
 \caption{Optimization Algorithm for Discretization}\label{alg:discreteoptimize}
@@ -126,30 +133,30 @@ to the efficiency of the algorithm.
 Now to define the optimization part of the above algorithm: Divide and 
 conquer can be considered to be based on multi-branched recursion. The 
 objects to be constructed at the end of the recursion are the smallest set 
-of segments that approximates the arclength of the curve to a defined 
+of segments that approximates the arc length of the curve to a defined 
 precision. This is not quantifiable without {\it{a priori}} knowledge 
-of the arclength of the curve. As discussed above, calculating the length 
+of the arc length of the curve. As discussed above, calculating the length 
 of a curve for this application is impractical. So how can the 
 ``goodness'' of a discretization be measured?  At each step, the 
 discretization will be refined on each segment by locally optimizing an 
 objective function analogous to the one developed above. In order to 
-minimize each segment's objective function, arclength deficit ($ALD$), 
+minimize each segment's objective function, arc-length deficit ($ALD$), 
 then a point $P$ has to be placed on the curve on the segment such 
 that the new sum of the arc lengths is changed maximally. Since this 
 entire project is to be done without calculating derivatives (see reasons 
 above), the optimization scheme chosen here is not given access to 
 derivative information either. Since the objective function is a 
-non-negative planar curve, $(O: C \rightarrow ALD)$, any line-searching 
+non-negative planar curve, $(O: C \rightarrow ALD)$, any line search 
 method of optimization could be used. However, the method cannot have any 
 requirements on differentiability due to the possibility that the 
 derivative of $O$ could be discontinuous.
 
-The golden section search method is implemented here since it meets all of 
-the above criteria and has the possibility to converge superlinearly 
-\cite{brent73}--unlike the bisection method.  Alternatively, a pattern 
-search~\cite{hopspack}, simplex~\cite{dantzig1,dantzig2}, or interior 
-point method~\cite{karmarkar} could be used.  If the length of each 
-segment 
+The golden section search method is implemented here, since, unlike the 
+bisection method, it meets all of the above criteria and has the 
+possibility to converge superlinearly \cite{brent73}.  Alternatively, a 
+pattern search~\cite{hopspack}, simplex~\cite{dantzig1,dantzig2}, or 
+interior point method~\cite{karmarkar} could be used.  If the length of 
+each segment 
 locally approaches the portion of the curve it represents (i.e., the 
 local objective function is 
 minimized), then the global length of the discretization approaches the 
@@ -174,7 +181,7 @@ apparent: the ``large'' segments could potentially not be subdivided
 because locally it is not justified--even if the subdivision of the large 
 segment would cause a global change in the length of the curve that is 
 significant. This value, global delta-segment, would have to be smaller 
-than the one used locally for each segment; otherwise it would have no 
+than the one used locally for each segment; otherwise, it would have no 
 effect. Therefore, an additional criterion is needed to determine if a 
 segment should be subdivided: if the total change in length of the 
 discretization would be changed by a defined fraction then it should be 

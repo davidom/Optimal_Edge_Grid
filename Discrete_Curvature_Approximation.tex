@@ -1,6 +1,21 @@
 % Discrete Curvature Approximation
 \section{Discrete Curvature Approximation}
-The concept of ``deviation'' as defined above is relatively straightforward and intuitive. However, another related way of describing ``how well'' a \textit{discretization} represents a \textit{curve} is the degree to which the discrete representation approximates curvature -- where curvature is defined as the amount of ``bend'' in a \textit{curve} or surface, or ``how much'' a \textit{curve} or surface ``differs'' from a straight line or plane (words in quotes are subject to gradation). First, however, curvature must be defined in such a way that a discrete approximation is meaningful and appropriate. In relevant literature there are many ways to estimate curvature \cite{hermann07}. Some of it bears repeating because it is germane to what is being discussed here: Consider the following planar \textit{curve}, C, at point P. At a given point P there exists an osculating circle, O, of radius r such that the circle has the same tangent as the \textit{curve} C as well as the same radius of curvature \cite{gray97}. \\
+The concept of ``deviation'' as defined above is relatively 
+straightforward and intuitive. However, another related way of describing 
+``how well'' a \textit{discretization} represents a \textit{curve} is the 
+degree to which the discrete representation approximates curvature -- 
+where curvature is defined as the amount of ``bend'' in a \textit{curve} 
+or surface, or ``how much'' a \textit{curve} or surface ``differs'' from a 
+straight line or plane (words in quotes are subject to gradation). First, 
+however, curvature must be defined in such a way that a discrete 
+approximation is meaningful and appropriate. In relevant literature there 
+are many ways to estimate curvature \cite{hermann07}. Some of it bears 
+repeating, because it is germane to what is being discussed here: Consider 
+the following planar \textit{curve}, C, at point P. At a given point P 
+there exists an osculating circle, O, of radius r such that the circle has 
+the same tangent as the \textit{curve} C as well as the same radius of 
+curvature \cite{gray97}.  {\bf{Dave:  Make the words "tangent line" the 
+same size as "osculating circle" in Figure 1.}} \\
 
 \begin{figure}[h!]
   \center{\includegraphics[height=1.5in]
@@ -60,12 +75,14 @@ Finally,
 \end{eqnarray}
 \end{proof}
 
-Given the aforementioned proof, if the discrete curvature radius is divided by the length of the corresponding segment on the \textit{curve}, then it’s value approaches zero. This is a scale independent measure that converges to a computer representable number as the \textit{discretization} approaches the length of the \textit{curve}. The parameter is known as the curvature ratio. It is an intuitive measure that relates ``how far'' the \textit{curve} deviates from the segment that is representing it as the ratio of those lengths. Consider a point on a \textit{curve} between two endpoints of a segment of a \textit{discretization}, as seen in \Cref{ref:CurvatureRatio}. The length of the segment, $L_i$, is the distance from $P_0$ to $P_1$. The perpendicular distance between the point on the \textit{curve} between the end points and the segment is $L_c$. The three points define a curvature ratio through the ratio of $L_c$ to $L_i$.
+Given the aforementioned proof, if the discrete curvature radius is 
+divided by the length of the corresponding segment on the \textit{curve}, then it’s value approaches zero. This is a scale-independent measure that converges to a computer representable number as the \textit{discretization} approaches the length of the \textit{curve}. The parameter is known as the curvature ratio. It is an intuitive measure that relates ``how far'' the \textit{curve} deviates from the segment that is representing it as the ratio of those lengths. Consider a point on a \textit{curve} between two endpoints of a segment of a \textit{discretization}, as seen in \Cref{ref:CurvatureRatio}. The length of the segment, $L_i$, is the distance from $P_0$ to $P_1$. The perpendicular distance between the point on the \textit{curve} between the end points and the segment is $L_c$. The three points define a curvature ratio through the ratio of $L_c$ to $L_i$.
 
 \begin{figure}[h!]
   \center{\includegraphics[height=1.5in]
     {Figures/CurvatureRatio.png}}
-  \caption{\label{ref:CurvatureRatio} $curvature ratio=  \frac{L_c}{L_i}$ 
+  \caption{\label{ref:CurvatureRatio} $curvature \ ratio=  
+\frac{L_c}{L_i}$ 
 \cite{mclaurin10}}
 \end{figure}
 
