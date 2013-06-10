@@ -16,7 +16,7 @@ deficit. In addition, the process was shown to be robust to
 discontinuities, abrupt changes in curvature, and self-intersections. 
 Results were shown here in two dimensions for ease of presentation. The 
 developed algorithm is easily abstracted to three dimensions through a 
-changed in curve and the kernel for edge length calculation.
+change in curve and the kernel for edge length calculation.
 
 Future work would include a comparison to a global optimization problem 
 formulated with the presented constraints and an additional constraint of 
@@ -34,11 +34,11 @@ be one of the chief tasks moving forward. Additionally, the edges, as well
 as the triangles, in the discretization must considered when optimizing 
 the surface grid.
 
-{\bf{Dave:  Modify the applications here if desired.  I'm interested in 
-medicine.  And I assume you have some mechanical engineering 
-applications.}}
 Finally, we will apply our edge and surface grid generation routines on 
 problems stemming from real-world applications, including those from 
 mechanical engineering and medicine.  One challenge that will need to be 
 faced is the development of a surface grid generator which can develop 
-an optimal representation of a surface from noisy data.
+an optimal representation of a surface from noisy data, e.g. medical
+imaging. An engineering application would be to accelerate the mesh generation
+process for fluids simulations be automatically generating surface meshes
+that capture local geometry.

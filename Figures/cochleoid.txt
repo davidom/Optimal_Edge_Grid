@@ -1,0 +1,26 @@
+0.1
+true length: 2.94078
+approximate length: 2.79165
+percent: 0.949288
+deficit: 0.0507119
+segments: 11
+function evaluations: 2337
+max queue size: 6
+
+0.01
+true length: 2.94078
+approximate length: 2.91601
+percent: 0.991578
+deficit: 0.0084216
+segments: 27
+function evaluations: 6273
+max queue size: 16
+
+0.001
+true length: 2.94078
+approximate length: 2.93853
+percent: 0.999236
+deficit: 0.000764126
+segments: 86
+function evaluations: 20787
+max queue size: 58

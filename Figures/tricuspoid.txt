@@ -4,6 +4,8 @@ approximate length: 15.5885
 percent: 0.974278
 deficit: 0.0257223
 segments: 4
+function evaluations: 615
+max queue size: 3
 
 0.01
 true length: 16
@@ -11,6 +13,8 @@ approximate length: 15.8745
 percent: 0.992156
 deficit: 0.00784418
 segments: 7
+function evaluations: 1353
+max queue size: 6
 
 0.001
 true length: 16
@@ -18,3 +22,5 @@ approximate length: 15.9906
 percent: 0.999412
 deficit: 0.000587524
 segments: 25
+function evaluations: 5781
+max queue size: 24
