@@ -24,9 +24,24 @@ hierarchy -- i.e., edge grid generation.  In addition, if the edge grids
 are not generated appropriately then the errors present there, such as 
 overly dense or sparse spacing, will be propagated up the grid generation hierarchy and be present in each subsequent higher-dimensional entity.
 
-The proposed algorithm is a general-use method that can be applied to any ``digital curve'' regardless of its representation. This is due to every step being developed {\it without} the use of derivatives. Most other methods operate on a specific type of curve, such as NURBS or B-splines, and use the specific information available for the type of curve in use. While in the field of CAD NURBS curves are the de-facto standard, in other fields, such as pattern-recognition, other types of digital curves, such as parametric, are more common~\cite{interactive_curve_modeling}.  T-splines are also becoming more popular in applications such as isogeometric analysis~\cite{iga}. 
+The proposed algorithm is a general-use method that can be applied to any ``digital curve'' regardless of its 
+representation. This is due to every step being developed {\it without} the use of derivatives. Most other methods 
+operate on a specific type of curve, such as NURBS or B-splines, and use the specific information available for 
+the type of curve in use.  NURBS curves are the de-facto standard in CAD; however, in other fields, such as 
+pattern-recognition, other types of digital curves, such as parametric, are more 
+common~\cite{interactive_curve_modeling}.  T-splines are also becoming more popular in isogeometric 
+analysis, for example~\cite{iga}. 
 
 The justification for the development of these methods lies in the need 
 for an automated way of setting point spacing values on curves. Therefore, 
-a general algorithm that does not require derivative information to generate a suitable edge grid has been developed. A result of not using derivatives is that each step in the algorithm is robust to large changes in derivatives or curves that are not ``well behaved'', e.g., they were highly oscillatory. This process can only be automated if some way of judging ``how well'' an edge grid represents a curve is present. To this end, a method of generating edge grids through constrained optimization is detailed below. Further discussion of element quality, robustness, and a framework for implementing the information associated with an optimal edge grid into an existing grid generator is also presented. Generating edge grids in a more automated fashion accelerates the process of surface grid generation---and ultimately volume grid generation. Using the detailed methods, or any other automated method for setting point spacings does not change the number of steps required for grid generation. However, it does reduce the number of manual steps involved in starting the process.
+a general algorithm that does not require derivative information to generate a suitable edge grid has been 
+developed. A result of not using derivatives is that each step in the algorithm is robust to large changes in 
+derivatives or curves that are not ``well behaved'', e.g., they were highly oscillatory. This process can only be 
+automated if some way of judging ``how well'' an edge grid represents a curve is present. To this end, a method of 
+generating edge grids through constrained optimization is detailed below. Further discussion of element quality, 
+robustness, and a framework for implementing the information associated with an optimal edge grid into an existing 
+grid generator is also presented. Generating edge grids in a more automated fashion accelerates the process of 
+surface grid generation---and ultimately volume grid generation. Using our algorithm, or another automated method 
+for setting point spacings does not change the number of steps required for grid generation. However, it does 
+reduce the number of manual steps involved in starting the process.
 
