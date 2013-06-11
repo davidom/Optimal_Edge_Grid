@@ -1,5 +1,5 @@
 % Results
-\section{Results}
+\section{Experimental Results}
 Three curves were chosen to demonstrate the aspects of the developed 
 methods. The first is a family of curves, $Lissajous$ curves 
 (\Cref{fig:lissajous}), which are a combination of two perpendicular 
@@ -49,6 +49,8 @@ For the Tricuspoid curve, the optimization can be seen to be accurate with regar
   \caption{\label{fig:lastfigure} Cocheloid Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit 
 (right);\newline $x(t) = 2*t + 3*\sin(7*t)$, $y(t) = t + 8*\cos(3*t)$, $0<t<1$}
   \end{figure}
+
+For the Cochleoid curve, an interesting feature stands out: when using $10\%$ as the ALD, a self-intersecting discretization was generated where the curve does not exhibit self-intersection. This is due to the rapid change in curvature near the center of the spirals. In general this cannot be avoided since {\it a priori} knowledge of where the curve is self-intersecting would be needed to refine the discretization where appropriate. When refined the result is valid. The results from using $1\%$ and $0.1\%$ ALD can be seen to accurate and increase in resolution where the curve exhibits changes in curvature. On the outer portions of the spiral the discretization is less refined that near the center of the spirals.
 
 \Cref{tab:curvelength} and \Cref{tab:generationdata} summarize the results from discretizing the three curves. 
 Each row in \Cref{tab:curvelength} shows the results from a particular percentage change in edge length that was 
