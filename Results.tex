@@ -1,5 +1,5 @@
 % Results
-\section{Results}
+\section{Experimental Results}
 Three curves were chosen to demonstrate the aspects of the developed 
 methods. The first is a family of curves, $Lissajous$ curves 
 (\Cref{fig:lissajous}), which are a combination of two perpendicular 
@@ -46,10 +46,21 @@ For the Tricuspoid curve, the algorithm for optimal point placement can be seen 
   \includegraphics[width=0.3\linewidth]{Figures/cochleoid001.png} &
   \includegraphics[width=0.3\linewidth]{Figures/cochleoid0001.png}
   \end{tabular}
-  \caption{\label{fig:lastfigure} Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right);\newline $x(t) = 2*t + 3*\sin(7*t)$, $y(t) = t + 8*\cos(3*t)$, $0<t<1$}
+  \caption{\label{fig:lastfigure} Cocheloid Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit 
+(right);\newline $x(t) = 2*t + 3*\sin(7*t)$, $y(t) = t + 8*\cos(3*t)$, $0<t<1$}
   \end{figure}
 
-\Cref{tab:curvelength} and \Cref{tab:generationdata} summarize the results from discretizing the three curves. Each row in \Cref{tab:curvelength} shows the results from a particular percentage change in edge length that was used as the refinement constraint. In each row the discretization length of each curve is shown along with the arc-length deficit relative to the true length of the curve and number of segments in parenthesis. Each result is less than the desired arc-length deficit for the entire curve -- except for 1\% result for the $Lissajous$ curve which is slightly higher. Each row in \Cref{tab:generationdata} shows the number of segments corresponding to each discretization and the number of function evaluations. Other test results run by the authors showed similar results in accuracy and robustness. It should be noted that no effort was made to prematurely optimize the number of function evaluation, e.g. caching. Algorithmic optimization was proven not to be needed due to the extremely low computational cost of the existing implementation.
+For the Cochleoid curve, an interesting feature stands out: when using 
+$10\%$ as the ALD, a self-intersecting discretization was generated where 
+the curve does not exhibit self-intersection. This is due to the rapid 
+change in curvature near the center of the spirals.  In general, this 
+cannot be avoided since {\it a priori} knowledge of where the curve is 
+self-intersecting would be needed to refine the discretization where 
+appropriate. When refined the result is valid. The results from using $1\%$ and $0.1\%$ ALD can be seen to accurate and increase in resolution where the curve exhibits changes in curvature. On the outer portions of the spiral, the discretization is less refined than near the center of the spirals.
+
+\Cref{tab:curvelength} and \Cref{tab:generationdata} summarize the results from discretizing the three curves. 
+Each row in \Cref{tab:curvelength} shows the results from a particular percentage change in edge length that was 
+used as the refinement constraint. In each row is the discretization length of each curve is shown along with the arc-length deficit relative to the true length of the curve and number of segments in parenthesis. Each result is less than the desired arc-length deficit for the entire curve -- except for 1\% result for the $Lissajous$ curve which is slightly higher. Each row in \Cref{tab:generationdata} shows the number of segments corresponding to each discretization and the number of function evaluations. Other test results run by the authors showed similar results in accuracy and robustness. It should be noted that no effort was made to prematurely optimize the number of function evaluations, e.g., caching. Algorithmic optimization was proven to be not needed due to the extremely low computational cost of the existing implementation.
 
 \begin{table}[h!] \caption{\label{tab:curvelength} Discretization length with respect to true curve length, arc-length deficit }
 \centering
