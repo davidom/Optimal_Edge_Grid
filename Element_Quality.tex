@@ -1,5 +1,5 @@
 % Element Quality
-\section{Element Quality}
+\section{Growth Ratio}
 Our goal was to develop an automated edge grid generator that accurately 
 represents the underlying geometry.  For this expressed purpose of 
 representing the curve to a desired tolerance, the grid quality 
@@ -20,7 +20,7 @@ cause problems for numerical partial differential equation methods.
 Traditionally edge grids are generated with an {\it{a priori}} defined 
 growth ratio along with other parameters that ensure that the grid has 
 good quality.  Upper and lower bounds can be included for the grid 
-quality as nonlinear constraints in the optimization problem.  However, in 
+quality (growth ratio) as nonlinear constraints in the optimization problem.  However, in 
 this case, the number of constraints grows very quickly, albeit 
 linear in the number of grid points.  Alternatively, minimum and maximum 
 growth rates could be enforced by the optimization procedure by splitting 

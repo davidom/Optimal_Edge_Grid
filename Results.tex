@@ -37,7 +37,7 @@ efficient with regards to only generating vertices where the curvature is high a
 + \cos(2*t))$, $y(t) = a*(2*\sin(t) - \sin(2t))$, $a=1$, $0<t<2*\pi$}
 \end{figure}
 
-For the Tricuspoid curve, the optimization can be seen to be accurate with regards to placing a vertex at the discontinuities. Placing a vertex at the discontinuity is efficient since no further nodes are required to capture that feature of the curve. It can be seen that further refinements are placed elsewhere in order to capture curvature.
+For the Tricuspoid curve, the algorithm for optimal point placement can be seen to be accurate with regards to placing a vertex at the discontinuities. Placing a vertex at the discontinuity is efficient since no further nodes are required to capture that feature of the curve. It can be seen that further refinements are placed elsewhere in order to capture curvature.
 
 \begin{figure}[h!]
   \centering
@@ -49,7 +49,7 @@ For the Tricuspoid curve, the optimization can be seen to be accurate with regar
   \caption{\label{fig:lastfigure} Curve: 10\% deficit (left), 1\% deficit (middle), 0.1\% deficit (right);\newline $x(t) = 2*t + 3*\sin(7*t)$, $y(t) = t + 8*\cos(3*t)$, $0<t<1$}
   \end{figure}
 
-\Cref{tab:curvelength} and \Cref{tab:generationdata} summarize the results from discretizing the three curves. Each row in \Cref{tab:curvelength} shows the results from a particular percentage change in edge length that was used as the refinement constraint. In each row is the discretization length of each curve is shown along with the arc-length deficit relative to the true length of the curve and number of segments in parenthesis. Each result is less than the desired arc-length deficit for the entire curve -- except for 1\% result for the $Lissajous$ curve which is slightly higher. Each row in \Cref{tab:generationdata} shows the number of segments corresponding to each discretization and the number of function evaluations. Other test results run by the authors showed similar results in accuracy and robustness. It should be noted that no effort was made to prematurely optimize the number of function evaluation, e.g. caching. Algorithmic optimization was proven to be not needed due to the extremely low computational cost of the existing implementation.
+\Cref{tab:curvelength} and \Cref{tab:generationdata} summarize the results from discretizing the three curves. Each row in \Cref{tab:curvelength} shows the results from a particular percentage change in edge length that was used as the refinement constraint. In each row the discretization length of each curve is shown along with the arc-length deficit relative to the true length of the curve and number of segments in parenthesis. Each result is less than the desired arc-length deficit for the entire curve -- except for 1\% result for the $Lissajous$ curve which is slightly higher. Each row in \Cref{tab:generationdata} shows the number of segments corresponding to each discretization and the number of function evaluations. Other test results run by the authors showed similar results in accuracy and robustness. It should be noted that no effort was made to prematurely optimize the number of function evaluation, e.g. caching. Algorithmic optimization was proven not to be needed due to the extremely low computational cost of the existing implementation.
 
 \begin{table}[h!] \caption{\label{tab:curvelength} Discretization length with respect to true curve length, arc-length deficit }
 \centering

@@ -30,7 +30,7 @@ R=\frac{1}{\kappa} \textnormal{, where }
 \noindent This quantity, $\kappa$, necessarily includes the calculation of 
 derivatives which, depending on the representation of the underlying geometrical description, could be relatively costly. Therefore, this is avoided by defining this radius of curvature on a segment or at a point in the \textit{discretization} without the use of derivatives. This is discussed in the following paragraphs.
 
-A value of curvature can be calculated for each edge in the \textit{discretization} by considering the corresponding osculating circle on a given edge. The osculating circle here (circle, \Cref{fig:OsculatingCircle}) can be approximated by considering the circumscribed circle (circumcircle) \cite{casey1888} defined by the two end points of the edge, $P_0$ and $P_0$, and a point, P, between them in the \textit{curve} parameterization (\Cref{fig:CircumscribedCircle}) -- the radius of the circumcircle will be referred to as the discrete radius of curvature.
+A value of curvature can be calculated for each edge in the \textit{discretization} by considering the corresponding osculating circle on a given edge. The osculating circle here (circle, \Cref{fig:OsculatingCircle}) can be approximated by considering the circumscribed circle (circumcircle) \cite{casey1888} defined by the two end points of the edge, $P_0$ and $P_1$, and a point, P, between them in the \textit{curve} parameterization (\Cref{fig:CircumscribedCircle}) -- the radius of the circumcircle will be referred to as the discrete radius of curvature.
 
 \begin{figure}[h!]
   \center{\includegraphics[height=1.5in]
@@ -44,7 +44,7 @@ Consider a circular segment, which represents the \textit{curve} $s$.  The corre
 \begin{figure}
   \center{\includegraphics[height=1.5in]
     {Figures/CircularSegment.png}}
-  \caption{\label{fig:CircleGeometry} Circulate Segment and Related Geometry \cite{weissteineSagitta}}
+  \caption{\label{fig:CircleGeometry} Circular Segment and Related Geometry \cite{weissteineSagitta}}
 \end{figure}.
 
 \begin{theorem}
@@ -56,7 +56,7 @@ to zero, therefore the radius of the circle, $R$, goes to infinity.
 First, 
 \begin{eqnarray}
 \begin{array}{lcl}
-a & = & \sqrt{R^2+r^2}=2*\sqrt{(h*(2*R-h)}.
+a & = & 2*\sqrt{R^2-r^2}=2*\sqrt{(h*(2*R-h)}.
 \end{array}
 \end{eqnarray}
 Upon rearranging, we obtain

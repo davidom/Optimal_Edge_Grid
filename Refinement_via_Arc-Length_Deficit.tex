@@ -72,7 +72,7 @@ involve repeatedly sampling the curve to determine the maximum number of
 e-length segments and the minimum number of m-length segments. This would 
 be possible but is inefficient. Another option is to estimate the number 
 of points needed \cite{cuilliere97}. However, if $n_t$ is to be estimated 
-then the discretization is not guaranteed to globally optimal. Therefore, 
+then the discretization is not guaranteed to be globally optimal. Therefore, 
 a global optimization problem, while possible, is not 
 very practical in this case. One of the aims of this work is to 
 accelerate the generation of suitable grids for simulation; moving the 
@@ -96,7 +96,7 @@ This would generate an optimal solution using two segments to represent the enti
 \State $u_1 $ and $u_3$ define the segment $S_{1,3}$
 \Procedure{Local Optimization}{$S_{1,3}$}
   \State $L(S_{1,3}) =\textnormal{ length of segment}$
-  \State Place interior point $u_2$ to maximize $L(S_{1,2})+L(S_{1,3})$ within $tolerance$
+  \State Place interior point $u_2$ to maximize $L(S_{1,2})+L(S_{2,3})$ within $tolerance$
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
