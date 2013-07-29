@@ -19,7 +19,7 @@ segments, $S_j : j \in \{1,...,(n_t-1)\}$. Segment $S_j$ is defined by two succe
 u_1 & < & u_2, \\ 
 u_2 & < & u_3, \\
 & \vdots & \\
-u_{n_t-2} & < & u_{n_t-1},\\ 
+u_{n_t-1} & < & u_{n_t},\\ 
 u_{n_t} & = & b.
 \end{array}
 \end{eqnarray*}
@@ -65,13 +65,13 @@ implicitly defines an upper and lower bound for the number of interior
 points. The implicit definition would be in the form of an 
 over-constrained problem where solutions did not exist for too many or too 
 few points. For instance, too many points could not satisfy the 
-minimum-distance set of constraints and too few points could not satisfy 
+minimum-distance set of constraints, and too few points could not satisfy 
 the maximum-distance set of constraints. However, explicitly determining 
 these bounds for $n_t$ would prove difficult. For example, it could 
 involve repeatedly sampling the curve to determine the maximum number of 
 e-length segments and the minimum number of m-length segments. This would 
 be possible but is inefficient. Another option is to estimate the number 
-of points needed \cite{cuilliere97}. However, if $n_t$ is to be estimated 
+of points needed \cite{cuilliere97}. However, if $n_t$ is to be estimated, 
 then the discretization is not guaranteed to be globally optimal. Therefore, 
 a global optimization problem, while possible, is not 
 very practical in this case. One of the aims of this work is to 
@@ -155,8 +155,8 @@ The golden section search method is implemented here, since, unlike the
 bisection method, it meets all of the above criteria and has the 
 possibility to converge superlinearly \cite{brent73}.  Alternatively, a 
 pattern search~\cite{hopspack}, simplex~\cite{dantzig1,dantzig2}, or 
-interior point method~\cite{karmarkar} could be used.  If the length of 
-each segment 
+interior point~\cite{karmarkar} method could be used.  If 
+the length of each segment 
 locally approaches the portion of the curve it represents (i.e., the 
 local objective function is 
 minimized), then the global length of the discretization approaches the 
