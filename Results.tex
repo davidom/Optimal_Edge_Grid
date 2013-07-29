@@ -60,7 +60,18 @@ appropriate. When refined the result is valid. The results from using $1\%$ and 
 
 \Cref{tab:curvelength} and \Cref{tab:generationdata} summarize the results from discretizing the three curves. 
 Each row in \Cref{tab:curvelength} shows the results from a particular percentage change in edge length that was 
-used as the refinement constraint. In each row is the discretization length of each curve is shown along with the arc-length deficit relative to the true length of the curve and number of segments in parenthesis. Each result is less than the desired arc-length deficit for the entire curve -- except for 1\% result for the $Lissajous$ curve which is slightly higher. Each row in \Cref{tab:generationdata} shows the number of segments corresponding to each discretization and the number of function evaluations. Other test results run by the authors showed similar results in accuracy and robustness. It should be noted that no effort was made to prematurely optimize the number of function evaluations, e.g., caching. Algorithmic optimization was proven to be not needed due to the extremely low computational cost of the existing implementation.
+used as the refinement constraint. In each row is the discretization 
+length of each curve is shown along with the arc-length deficit relative 
+to the true length of the curve and number of segments in parenthesis. 
+Each result is less than the desired arc-length deficit for the entire 
+curve -- except for 1\% result for the $Lissajous$ curve which is slightly 
+higher. Each row in \Cref{tab:generationdata} shows the number of segments 
+corresponding to each discretization and the number of function 
+evaluations. Other test results run by the authors showed similar results 
+in accuracy and robustness. It should be noted that no effort was made to 
+prematurely optimize the number of function evaluations, e.g., caching. 
+Algorithmic optimization proved to not be needed due to the 
+extremely low computational cost of the existing implementation.
 
 \begin{table}[h!] \caption{\label{tab:curvelength} Discretization length with respect to true curve length, arc-length deficit }
 \centering
