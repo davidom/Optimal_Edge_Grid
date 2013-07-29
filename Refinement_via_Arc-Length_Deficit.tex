@@ -14,7 +14,7 @@ curve comprised of $n_t$ points, $P_i : i \in \{1,...,n_t\}$, and
 segments, $S_j : j \in \{1,...,(n_t-1)\}$. Segment $S_j$ is defined by two successive parametrization values, $u_j$ and $u_{j+1}$. If $L(S)$ is a function that calculates the length of a segment in $(x,y)$ space then the optimization problem can be stated as:
 \begin{eqnarray*}
 \begin{array}{rcl}
-\underset{u_i}{\text{minimize}} \ O & = & -\sum{_{j=2}^{n_t-1}L_j} \\
+\underset{u_i}{\text{minimize}} \ O & = & -\sum{_{j=1}^{n_t-1}L_j} \\
 \text{subject to} \ u_1 & = & a \\
 u_1 & < & u_2, \\ 
 u_2 & < & u_3, \\
@@ -45,17 +45,19 @@ bounds on the distance between points in the discretization.  This turns
 the optimization problem into a linear programming problem.  To this end, 
 let $e$ and $m$ represent user-defined lower and upper bounds on the 
 distance between points in the discretization, 
-respectively.  In addition, let $\hat{S}_i$ denote the $i^{th}$ segment 
-in non-parametrized space, i.e., $\hat{S}_i = P_{i+1}-P_i$.  The bounds 
+respectively.  
+%In addition, let $\hat{S}_i$ denote the $i^{th}$ segment 
+%in non-parametrized space, i.e., $\hat{S}_i = P_{i+1}-P_i$.  
+The bounds 
 are easily worked into the set of constraints, where $P_i$ represents a 
 point in non-parametrized, $(x,y)$-space as follows: 
 \begin{eqnarray*} 
 \begin{array}{rcl} 
 P_1 & = & \alpha,\\ 
-e \leq & \hat{S}_1 & \leq m \\ 
-e \leq & \hat{S}_2 & \leq m \\ 
+e \leq & L_1 & \leq m \\ 
+e \leq & L_2 & \leq m \\ 
 e \leq & \vdots & \leq m \\ 
-e \leq & \hat{S}_{n_t-1} & \leq m \\ 
+e \leq & L_{n_t-1} & \leq m \\ 
 P_{n_t} & = & \beta. 
 \end{array} 
 \end{eqnarray*}
@@ -189,5 +191,5 @@ subdivided. The addition of this last subdivision criterion makes the
 method ``less-greedy''. This set, minimum segment length, maximum segment 
 length, local delta-segment, and global delta-segment define a robust, 
 minimum set of criterion needed for generating an optimum solution to the 
-problem of representing a curve via arclength deficit.
+problem of representing a curve via arc-length deficit.
 
