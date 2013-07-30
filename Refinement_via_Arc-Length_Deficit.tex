@@ -103,9 +103,6 @@ This would generate an optimal solution using two segments to represent the enti
 \end{algorithmic}
 \end{algorithm}
 
-The above algorithm would be applied for each segment in the 
-discretization by:
-  
 \begin{algorithm}[H]
 \caption{Optimization Algorithm for Discretization}\label{alg:discreteoptimize}
 \begin{algorithmic}
@@ -124,13 +121,14 @@ discretization by:
 \end{algorithmic}
 \end{algorithm}
 
-The above algorithm is straightforward and is often referred to as 
-adaptive refinement or enrichment (see above). Also, since the 
+\Cref{alg:discreteoptimize}, often referred to as adaptive refinement or enrichment (see above), would be applied for each segment in the 
+discretization. Also, since the 
 discretization of the curve exhibits optimal substructure, the starting 
 point to the optimization algorithm and the method of refinement or 
 enrichment are irrelevant to the extent to which they prevent an optimal 
 solution from being generated. However, they obviously contribute 
 to the efficiency of the algorithm.
+
 
 Now to define the optimization part of the above algorithm: Divide and 
 conquer can be considered to be based on multi-branched recursion. The 
