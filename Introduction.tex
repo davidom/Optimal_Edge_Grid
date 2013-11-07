@@ -1,6 +1,26 @@
 % Introduction Document
 \section{Introduction}
-Computational design and analysis has become a fundamental part of industry and academia for use in research, development, and manufacturing. In general, the accuracy of a computational analysis depends heavily on the fidelity of the computational representation of a real-world object or phenomenon. However, the task of creating high fidelity models of an actual geometry can be time-consuming--sometimes consuming up to seventy-five percent of the time required to produce a solution \cite{bischoff05}. This work seeks to improve the process of creating a computational model of an object of interest by accelerating the process of mesh generation. In general, a valid volume grid (three-dimensional) is bounded by surface grids (two-dimensional); surface grids are bounded by edge grids (one-dimensional). At the start of the grid generation hierarchy are point spacing values at the end points of analytical or parametric curves which bound the edge grids. Once the bounding surface grid is generated, volume grid generation is, in most cases, a highly automated process. The same generalization can be made for surface grids and edge grids. Algorithms that use automated point creation/insertion for mesh generation of one-, two-, and three-dimensional geometries are ubiquitous~\cite{cubit,delaunay,aflr}.  The work here seeks to build on \cite{mclaurin12} by formalizing the problem description, developing error bounds, and improving the robustness and accuracy of the previously developed algorithms and concepts.
+Computational design and analysis has become a fundamental part of industry
+and academia for use in research, development, and manufacturing. In general,
+the accuracy of a computational analysis depends heavily on the fidelity of
+the computational representation of a real-world object or phenomenon. However,
+the task of creating high fidelity models of an actual geometry can be
+time-consuming--sometimes consuming up to seventy-five percent of the time
+required to produce a solution \cite{bischoff05}. This work seeks to improve
+the process of creating a computational model of an object of interest by
+accelerating the process of mesh generation. In general, a valid volume grid
+(three-dimensional) is bounded by surface grids (two-dimensional); surface
+grids are bounded by edge grids (one-dimensional). At the start of the grid
+generation hierarchy are point spacing values at the end points of analytical
+or parametric curves which bound the edge grids. Once the bounding surface
+grid is generated, volume grid generation is, in most cases, a highly automated
+process. The same generalization can be made for surface grids and edge grids.
+Algorithms that use automated point creation/insertion for mesh generation of
+one-, two-, and three-dimensional geometries are
+ubiquitous~\cite{cubit,delaunay,aflr}.  The work here seeks to build on
+\cite{mclaurin12} by formalizing the problem description, developing error
+bounds, and improving the robustness and accuracy of the previously developed
+algorithms and concepts.
 
 The computation involved with edge grid generation is trivial when 
 compared to volume grid generation -- even with high-order NURBS curves. 
